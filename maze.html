@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script language="JavaScript" for=jumpbar event="onscriptletevent(name, eventData)">
+        switch (name) {
+            case "onnavigate":
+                window.focus()
+                window.location.href = eventData
+                break;
+            case "oncnavigate":
+                eval(eventData)
+                break;
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/maze.css">
+    <script src="js/maze.js"></script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        키보드 방향키를 눌러서 미로를 찾아보세요..<br>
+    </div>
+    <div class=why id=why>
+        <p>
+            <table id=board align="CENTER" cellspacing=0 cellpadding=0>
+                <script src="js/maze2.js"></script>
+            </table>
+
+            <p id="message"></p>
+
+            <div id=pageList>
+                <p class=start></p>
+            </div>
+        </p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+#board TD {width: 15pt; height: 15pt; font-size: 2pt; }
+#board TD.start {font-size: 8pt; border-left: 2px black solid; background:yellow; border-top: 2px black solid;text-align: center; color: red}
+#board TD.end {font-size: 8pt; text-align: center; color: green}
+#message {margin: 0pt; padding: 0pt; text-align: center}
