@@ -38,8 +38,50 @@ function testNext(nxt) {
     return true
 }
 
+function moveLeft() {
+    if (maze[start.rows][1][start.cols - 1] == 0) {
+        if (testNext(board.rows[start.rows].cells[start.cols - 1]))
+            message.innerText = "Going west..."
+        start.cols--
+        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
+    } else
+        message.innerText = "Ouch... you can't go west."
+}
+
+function moveUp() {
+    if (maze[start.rows][0][start.cols] == 0) {
+        if (testNext(board.rows[start.rows - 1].cells[start.cols]))
+            message.innerText = "Going north..."
+        start.rows--
+        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
+    } else
+        message.innerText = "Ouch... you can't go north."
+}
+
+function moveRight() {
+    if (maze[start.rows][1][start.cols] == 0) {
+        if (testNext(board.rows[start.rows].cells[start.cols + 1]))
+            message.innerText = "Going east..."
+        start.cols++
+        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
+    }
+    else
+        message.innerText = "Ouch... you can't go east."
+}
+
+function moveDown() {
+    if (maze[start.rows + 1] == null) return
+    if (maze[start.rows + 1][0][start.cols] == 0) {
+        if (testNext(board.rows[start.rows + 1].cells[start.cols]))
+            message.innerText = "Going south..."
+        start.rows++
+        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
+    } else
+        message.innerText = "Ouch... you can't go south."
+}
+
 function moveIt() {
-    if (!progress) return
+    if (!progress) return2
     switch (event.keyCode) {
         case 37: // left
             if (maze[start.rows][1][start.cols - 1] == 0) {
