@@ -10,6 +10,10 @@
     font-style: normal; 
 }
 
+table {
+    background-color: white;
+}
+
 body {
     font-family: 'BBTreeGR', serif;
     font-weight: 300;
