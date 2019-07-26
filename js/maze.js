@@ -38,6 +38,13 @@ function testNext(nxt) {
     return true
 }
 
+function move() {
+    if (document.all.board.rows[start.rows].cells[start.cols].innerText == "end") {
+        alert = "넘 쉽죠!"
+        progress = false
+    }
+}
+
 function moveLeft() {
     if (maze[start.rows][1][start.cols - 1] == 0) {
         if (testNext(board.rows[start.rows].cells[start.cols - 1]))
