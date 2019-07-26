@@ -3,6 +3,28 @@
 #board TD.end {font-size: 8pt; text-align: center; color: green}
 #message {margin: 0pt; padding: 0pt; text-align: center}
 
+@font-face { 
+    font-family: 'BBTreeGR'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+    }
+body {
+    font-family: 'BBTreeGR', serif;
+    font-weight: 300;
+    color: #FAFAFA;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: -1;
+    background: url("../img/main.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
 #test_btn1{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
