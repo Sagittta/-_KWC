@@ -31,7 +31,7 @@ maze[12][1] = new Array(1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1)
 
 function testNext(nxt) {
     if ((board.rows[start.rows].cells[start.cols].style.backgroundColor == "yellow") && (nxt.style.backgroundColor == 'yellow')) {
-        message.innerText = "I see you changed your mind."
+        message.innerText = "마음을 바꾸셨군요 !"
         board.rows[start.rows].cells[start.cols].style.backgroundColor = ""
         return false
     }
@@ -45,97 +45,73 @@ function move() {
     }
 }
 
+var colorCode
+function color() {
+    colorCode = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+}
+
 function moveLeft() {
     if (maze[start.rows][1][start.cols - 1] == 0) {
         if (testNext(board.rows[start.rows].cells[start.cols - 1]))
-            message.innerText = "Going west..."
+            message.innerText = "왼쪽으로 가는 중 .."
         start.cols--
-        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
+        color();
+        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = colorCode
+        if (document.all.board.rows[start.rows].cells[start.cols].innerText == "end") {
+            alert = "넘 쉽죠!"
+            progress = false
+        }
     } else
-        message.innerText = "Ouch... you can't go west."
+        message.innerText = "이런.. 왼쪽으로 갈 수 없어요"
+
 }
 
 function moveUp() {
     if (maze[start.rows][0][start.cols] == 0) {
         if (testNext(board.rows[start.rows - 1].cells[start.cols]))
-            message.innerText = "Going north..."
+            message.innerText = "위쪽으로 가는 중.."
         start.rows--
-        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
+        color();
+        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = colorCode
+            if (document.all.board.rows[start.rows].cells[start.cols].innerText == "end") {
+                alert = "넘 쉽죠!"
+                progress = false
+            }
     } else
-        message.innerText = "Ouch... you can't go north."
+        message.innerText = "이런.. 위쪽으로 갈 수 없어요"
+
 }
 
 function moveRight() {
     if (maze[start.rows][1][start.cols] == 0) {
         if (testNext(board.rows[start.rows].cells[start.cols + 1]))
-            message.innerText = "Going east..."
+            message.innerText = "오른쪽으로 가는 중.."
         start.cols++
-        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
+        color();
+        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = colorCode
+        if (document.all.board.rows[start.rows].cells[start.cols].innerText == "end") {
+            alert = "넘 쉽죠!"
+            progress = false
+        }
     }
     else
-        message.innerText = "Ouch... you can't go east."
+        message.innerText = "이런.. 오른쪽으로 갈 수 없어요"
+
 }
 
 function moveDown() {
     if (maze[start.rows + 1] == null) return
     if (maze[start.rows + 1][0][start.cols] == 0) {
         if (testNext(board.rows[start.rows + 1].cells[start.cols]))
-            message.innerText = "Going south..."
+            message.innerText = "아래쪽으로 가는 중.."
         start.rows++
-        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
+        color();
+        document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = colorCode
+        if (document.all.board.rows[start.rows].cells[start.cols].innerText == "end") {
+            alert = "넘 쉽죠!"
+            progress = false
+        }
     } else
-        message.innerText = "Ouch... you can't go south."
-}
-
-function moveIt() {
-    if (!progress) return2
-    switch (event.keyCode) {
-        case 37: // left
-            if (maze[start.rows][1][start.cols - 1] == 0) {
-                if (testNext(board.rows[start.rows].cells[start.cols - 1]))
-                    message.innerText = "Going west..."
-                start.cols--
-                document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
-            } else
-                message.innerText = "Ouch... you can't go west."
-
-            break;
-        case 38: // up
-            if (maze[start.rows][0][start.cols] == 0) {
-                if (testNext(board.rows[start.rows - 1].cells[start.cols]))
-                    message.innerText = "Going north..."
-                start.rows--
-                document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
-            } else
-                message.innerText = "Ouch... you can't go north."
-
-            break;
-        case 39: // right
-
-            if (maze[start.rows][1][start.cols] == 0) {
-                if (testNext(board.rows[start.rows].cells[start.cols + 1]))
-                    message.innerText = "Going east..."
-                start.cols++
-                document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
-            }
-            else
-                message.innerText = "Ouch... you can't go east."
-
-            break;
-        case 40: //down
-            if (maze[start.rows + 1] == null) return
-            if (maze[start.rows + 1][0][start.cols] == 0) {
-                if (testNext(board.rows[start.rows + 1].cells[start.cols]))
-                    message.innerText = "Going south..."
-                start.rows++
-                document.all.board.rows[start.rows].cells[start.cols].style.backgroundColor = "yellow"
-            } else
-                message.innerText = "Ouch... you can't go south."
-
-            break;
-    }
-    if (document.all.board.rows[start.rows].cells[start.cols].innerText == "end") {
-        message.innerText = "넘 쉽죠!"
-        progress = false
-    }
+        message.innerText = "이런.. 아래쪽으로 갈 수 없어요"
+        
 }
